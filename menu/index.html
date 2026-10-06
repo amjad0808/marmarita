@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мармарита — Меню</title>
+<meta name="description" content="Меню кафе «Мармарита»: шаверма, закуски, крылья, шашлык, панини, бургеры.">
+<meta name="theme-color" content="#b3261e">
+<style>
+  :root { --bg: #f6f2ec; --ink: #2b211c; --accent: #b3261e; --card: #ffffff; --muted: #7a6d64; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  header { text-align: center; padding: 22px 16px 10px; }
+  h1 { margin: 0; font: italic 600 clamp(32px, 9vw, 48px)/1.1 Georgia, "Times New Roman", serif; color: var(--accent); }
+  .sub { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+  nav { display: flex; gap: 8px; justify-content: center; padding: 8px 16px 4px; position: sticky; top: 0; background: var(--bg); z-index: 2; }
+  nav a { text-decoration: none; color: #fff; background: var(--accent); padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 15px; }
+  section { scroll-margin-top: 60px; }
+  main { max-width: 1200px; margin: 0 auto; padding: 8px 16px 24px; }
+  section { margin: 16px 0 26px; }
+  h2 { font-size: 18px; margin: 0 0 8px; }
+  .card { display: block; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+  .card img { display: block; width: 100%; height: auto; }
+  .hint { color: var(--muted); font-size: 14px; margin: 8px 2px 0; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 10px 16px 28px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Мармарита</h1>
+  <p class="sub">Меню</p>
+</header>
+<nav>
+  <a href="#menu-1">Меню 1</a>
+  <a href="#menu-2">Меню 2</a>
+</nav>
+<main>
+  <section id="menu-1">
+    <h2>Блюдо · Комбо · Дополнение · Кофе · Хот-дог</h2>
+    <a class="card" href="../img/menu-1.jpg"><img src="../img/menu-1.jpg" width="1600" height="900" alt="Меню 1: блюдо Мармарита, комбо, дополнения, кофе, хот-доги"></a>
+    <p class="hint">Нажмите на меню, чтобы открыть его крупно.</p>
+  </section>
+  <section id="menu-2">
+    <h2>Шаверма · Закуски · Крылья · Шашлык · Панини · Бургеры</h2>
+    <a class="card" href="../img/menu-2.jpg"><img src="../img/menu-2.jpg" width="1600" height="900" loading="lazy" alt="Меню: шаверма, закуски, крылья, шашлык, панини, гамбургер, чикенбургер"></a>
+    <p class="hint">Нажмите на меню, чтобы открыть его крупно.</p>
+  </section>
+</main>
+<footer>
+  <p style="margin:0 0 10px"><a href="tel:+79114525508" style="display:inline-block;text-decoration:none;color:#fff;background:var(--accent);padding:10px 20px;border-radius:999px;font-weight:600">📞 Заказ по телефону: +7 (911) 452-55-08</a></p>
+  <p style="margin:0 0 6px">Калининград, ул. Гайдара 117б · Ежедневно 10:00–23:00</p>
+  <p style="margin:0 0 6px"><a href="../" style="color:var(--accent);font-weight:600">Наш сайт →</a></p>
+  © Мармарита
+</footer>
+</body>
+</html>

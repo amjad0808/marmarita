@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мармарита — шаверма, шашлык и закуски в Калининграде</title>
+<meta name="description" content="Кафе «Мармарита» в Калининграде, ул. Гайдара 117б. Шаверма, шашлык, крылья, панини, бургеры, хот-доги и кофе. Ежедневно 10:00–23:00. Заказы по телефону +7 (911) 452-55-08.">
+<meta name="theme-color" content="#b3261e">
+<meta property="og:title" content="Мармарита — Калининград">
+<meta property="og:description" content="Шаверма, шашлык, крылья, панини, бургеры и кофе. ул. Гайдара 117б, ежедневно 10:00–23:00.">
+<meta property="og:image" content="img/shawarma.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #c0281f; --red-dark: #8f1a14; --cream: #fbf6ee; --sand: #f3e9da; --ink: #2a1f1a;
+    --muted: #7b6c62; --card: #ffffff; --dark: #1d1512; --radius: 16px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--cream); color: var(--ink); font: 16px/1.6 Montserrat, system-ui, -apple-system, "Segoe UI", Arial, sans-serif; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+  /* language switch: show only the active language */
+  html[data-lang="ru"] [lang="en"]:not(html), html[data-lang="en"] [lang="ru"]:not(html) { display: none !important; }
+
+  /* header */
+  header.top { position: sticky; top: 0; z-index: 20; background: rgba(251,246,238,.94); backdrop-filter: blur(8px); border-bottom: 1px solid #eadfce; }
+  .bar { display: flex; align-items: center; gap: 18px; height: 64px; }
+  .logo { font: 30px/1 Lobster, cursive; color: var(--red); text-decoration: none; margin-right: auto; }
+  nav.main { display: flex; gap: 22px; }
+  nav.main a { text-decoration: none; font-weight: 600; font-size: 15px; }
+  nav.main a:hover { color: var(--red); }
+  .lang { display: flex; border: 1.5px solid var(--red); border-radius: 999px; overflow: hidden; }
+  .lang button { border: 0; background: transparent; color: var(--red); font: 700 13px Montserrat, sans-serif; padding: 6px 11px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--red); color: #fff; }
+  .call-top { text-decoration: none; background: var(--red); color: #fff; font-weight: 700; font-size: 14px; padding: 9px 16px; border-radius: 999px; white-space: nowrap; }
+
+  /* hero */
+  .hero { position: relative; min-height: min(86vh, 720px); display: grid; align-items: end; color: #fff; overflow: hidden; }
+  .hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero::after { content: ""; position: absolute; inset: 0; background:
+      linear-gradient(90deg, rgba(20,12,9,.82) 0%, rgba(20,12,9,.55) 45%, rgba(20,12,9,.05) 75%),
+      linear-gradient(180deg, rgba(20,12,9,0) 50%, rgba(20,12,9,.6) 100%); }
+  .hero img.bg { object-position: 70% 50%; }
+  .hero .wrap { position: relative; z-index: 1; padding-bottom: 64px; padding-top: 120px; }
+  .hero h1 { font: clamp(56px, 11vw, 112px)/1 Lobster, cursive; margin: 0 0 10px; text-shadow: 0 4px 24px rgba(0,0,0,.35); }
+  .hero p.lead { font-size: clamp(18px, 2.4vw, 23px); font-weight: 500; max-width: 640px; margin: 0 0 8px; }
+  .hero p.meta { margin: 0 0 26px; opacity: .9; font-size: 15px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; padding: 14px 24px; border-radius: 999px; font-size: 16px; }
+  .btn.primary { background: var(--red); color: #fff; }
+  .btn.primary:hover { background: var(--red-dark); }
+  .btn.ghost { border: 2px solid #fff; color: #fff; }
+  .btn.ghost:hover { background: rgba(255,255,255,.15); }
+
+  section { padding: 84px 0; }
+  .eyebrow { color: var(--red); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 13px; margin: 0 0 6px; }
+  h2 { font-size: clamp(30px, 4.2vw, 44px); line-height: 1.15; margin: 0 0 14px; font-weight: 800; }
+  .intro { color: var(--muted); max-width: 640px; margin: 0 0 40px; }
+
+  /* favourites */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+  .dish { background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 24px rgba(60,30,10,.08); display: flex; flex-direction: column; }
+  .dish img { aspect-ratio: 4 / 3; width: 100%; object-fit: cover; }
+  .dish .body { padding: 18px 20px 22px; }
+  .dish h3 { margin: 0 0 4px; font-size: 20px; }
+  .dish p { margin: 0 0 12px; color: var(--muted); font-size: 15px; }
+  .price { display: inline-block; background: var(--red); color: #fff; font-weight: 700; border-radius: 999px; padding: 4px 14px; font-size: 15px; }
+  .also { margin-top: 26px; color: var(--muted); font-size: 15px; }
+
+  /* menu */
+  #menu { background: var(--sand); }
+  .menus { display: grid; gap: 28px; }
+  .menu-card { background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 24px rgba(60,30,10,.1); text-decoration: none; display: block; }
+  .menu-card img { width: 100%; height: auto; }
+  .menu-card .cap { padding: 14px 20px; display: flex; justify-content: space-between; gap: 12px; align-items: center; font-weight: 600; }
+  .menu-card .cap span.zoom { color: var(--red); white-space: nowrap; font-size: 14px; }
+
+  /* about */
+  .about { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .about img { border-radius: var(--radius); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; box-shadow: 0 10px 30px rgba(60,30,10,.15); }
+  .points { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
+  .points li { display: flex; gap: 14px; align-items: flex-start; }
+  .points .ic { flex: 0 0 40px; height: 40px; border-radius: 12px; background: #f6dcd6; color: var(--red); display: grid; place-items: center; font-weight: 800; }
+  .points b { display: block; }
+  .points span.t { color: var(--muted); font-size: 15px; }
+
+  /* contact */
+  #contact { background: var(--dark); color: #f5ece4; }
+  #contact .intro { color: #c9b8ab; }
+  .contact { display: grid; grid-template-columns: .9fr 1.1fr; gap: 36px; align-items: stretch; }
+  .info { display: grid; gap: 22px; align-content: start; }
+  .info .row small { display: block; color: #c9b8ab; font-size: 13px; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+  .info .row a, .info .row div { font-size: 20px; font-weight: 600; text-decoration: none; }
+  .info .row a:hover { color: #ffb4a9; }
+  .map { border-radius: var(--radius); overflow: hidden; min-height: 360px; background: #2b211c; }
+  .map iframe { width: 100%; height: 100%; min-height: 360px; border: 0; display: block; }
+
+  footer { background: #140e0b; color: #a8978b; text-align: center; font-size: 14px; padding: 26px 20px; }
+  footer .logo-f { font: 26px/1 Lobster, cursive; color: #fff; display: block; margin-bottom: 6px; }
+
+  /* lightbox */
+  dialog.lb { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
+  dialog.lb::backdrop { background: rgba(10,6,4,.88); }
+  dialog.lb img { max-width: 96vw; max-height: 90vh; width: auto; height: auto; border-radius: 10px; }
+  dialog.lb button { position: fixed; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #fff; font-size: 22px; cursor: pointer; }
+
+  @media (max-width: 860px) {
+    nav.main { display: none; }
+    .call-top .lbl { display: none; }
+    .about, .contact { grid-template-columns: 1fr; }
+    section { padding: 64px 0; }
+  }
+  @media (max-width: 420px) {
+    .bar { gap: 10px; }
+    .logo { font-size: 26px; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top">Мармарита</a>
+    <nav class="main">
+      <a href="#favourites"><span lang="ru">Хиты</span><span lang="en">Favourites</span></a>
+      <a href="#menu"><span lang="ru">Меню</span><span lang="en">Menu</span></a>
+      <a href="#about"><span lang="ru">О нас</span><span lang="en">About</span></a>
+      <a href="#contact"><span lang="ru">Контакты</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Язык / Language">
+      <button type="button" data-set-lang="ru" aria-pressed="true">RU</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="call-top" href="tel:+79114525508" aria-label="Позвонить / Call">📞<span class="lbl"> +7 (911) 452-55-08</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Мармарита">
+    <img class="bg" src="img/shawarma.jpg" alt="" fetchpriority="high">
+    <div class="wrap">
+      <h1>Мармарита</h1>
+      <p class="lead">
+        <span lang="ru">Шаверма, шашлык и горячие закуски — готовим свежо и с душой.</span>
+        <span lang="en">Shawarma, shashlik and hot snacks — made fresh, made with heart.</span>
+      </p>
+      <p class="meta">
+        <span lang="ru">Калининград, ул. Гайдара 117б · Ежедневно 10:00–23:00</span>
+        <span lang="en">Kaliningrad, 117b Gaidara St. · Daily 10:00–23:00</span>
+      </p>
+      <div class="btns">
+        <a class="btn primary" href="#menu"><span lang="ru">Смотреть меню</span><span lang="en">View menu</span></a>
+        <a class="btn ghost" href="tel:+79114525508">📞 <span lang="ru">Заказать по телефону</span><span lang="en">Order by phone</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="favourites">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="ru">Наши хиты</span><span lang="en">Our favourites</span></p>
+      <h2><span lang="ru">Что попробовать у нас</span><span lang="en">What to try</span></h2>
+      <p class="intro">
+        <span lang="ru">Всё готовим на месте из свежих продуктов — быстро, сытно и вкусно.</span>
+        <span lang="en">Everything is cooked on site from fresh ingredients — quick, filling and tasty.</span>
+      </p>
+      <div class="grid">
+        <article class="dish">
+          <img src="img/shawarma.jpg" alt="Шаверма / Shawarma" loading="lazy">
+          <div class="body">
+            <h3><span lang="ru">Шаверма</span><span lang="en">Shawarma</span></h3>
+            <p><span lang="ru">С курицей или свининой, свежими овощами и фирменным соусом.</span><span lang="en">Chicken or pork with fresh vegetables and our signature sauce.</span></p>
+            <span class="price"><span lang="ru">от</span><span lang="en">from</span> 280 ₽</span>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/wings.jpg" alt="Крылья / Chicken wings" loading="lazy">
+          <div class="body">
+            <h3><span lang="ru">Крылья</span><span lang="en">Chicken wings</span></h3>
+            <p><span lang="ru">Сочные и хрустящие — 5 или 8 штук.</span><span lang="en">Juicy and crispy — 5 or 8 pieces.</span></p>
+            <span class="price"><span lang="ru">от</span><span lang="en">from</span> 360 ₽</span>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/lunchbox.jpg" alt="Ланч-бокс с шашлыком / Shashlik lunch box" loading="lazy">
+          <div class="body">
+            <h3><span lang="ru">Ланч-бокс с шашлыком</span><span lang="en">Shashlik lunch box</span></h3>
+            <p><span lang="ru">Шашлык, фри, капуста, свежие овощи и соус на выбор.</span><span lang="en">Shashlik, fries, cabbage, fresh vegetables and a sauce of your choice.</span></p>
+            <span class="price"><span lang="ru">от</span><span lang="en">from</span> 410 ₽</span>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/panini.jpg" alt="Панини / Panini" loading="lazy">
+          <div class="body">
+            <h3><span lang="ru">Панини</span><span lang="en">Panini</span></h3>
+            <p><span lang="ru">Горячие панини с курицей или свининой.</span><span lang="en">Hot panini with chicken or pork.</span></p>
+            <span class="price"><span lang="ru">от</span><span lang="en">from</span> 310 ₽</span>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/burger.jpg" alt="Бургеры / Burgers" loading="lazy">
+          <div class="body">
+            <h3><span lang="ru">Бургеры</span><span lang="en">Burgers</span></h3>
+            <p><span lang="ru">Гамбургер и чикенбургер.</span><span lang="en">Hamburger and chicken burger.</span></p>
+            <span class="price"><span lang="ru">от</span><span lang="en">from</span> 260 ₽</span>
+          </div>
+        </article>
+      </div>
+      <p class="also">
+        <span lang="ru">А ещё: фирменное блюдо «Мармарита», комбо-наборы, хот-доги, закуски и кофе — всё в меню ниже.</span>
+        <span lang="en">Also: our signature dish “Marmarita”, combo sets, hot dogs, snacks and coffee — see the full menu below.</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="ru">Меню</span><span lang="en">Menu</span></p>
+      <h2><span lang="ru">Наше меню</span><span lang="en">Our menu</span></h2>
+      <p class="intro">
+        <span lang="ru">Нажмите на меню, чтобы открыть его крупно.</span>
+        <span lang="en">Tap a menu to open it full size.</span>
+      </p>
+      <div class="menus">
+        <a class="menu-card" href="img/menu-1.jpg" data-lightbox>
+          <img src="img/menu-1.jpg" width="1600" height="900" loading="lazy" alt="Меню 1: блюдо Мармарита, комбо, дополнения, кофе, хот-доги">
+          <div class="cap"><span><span lang="ru">Блюдо · Комбо · Дополнения · Кофе · Хот-доги</span><span lang="en">Signature dish · Combos · Extras · Coffee · Hot dogs</span></span><span class="zoom">🔍 <span lang="ru">Увеличить</span><span lang="en">Enlarge</span></span></div>
+        </a>
+        <a class="menu-card" href="img/menu-2.jpg" data-lightbox>
+          <img src="img/menu-2.jpg" width="1600" height="900" loading="lazy" alt="Меню 2: шаверма, закуски, крылья, шашлык, панини, бургеры">
+          <div class="cap"><span><span lang="ru">Шаверма · Закуски · Крылья · Шашлык · Панини · Бургеры</span><span lang="en">Shawarma · Snacks · Wings · Shashlik · Panini · Burgers</span></span><span class="zoom">🔍 <span lang="ru">Увеличить</span><span lang="en">Enlarge</span></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow"><span lang="ru">О нас</span><span lang="en">About us</span></p>
+        <h2><span lang="ru">Кафе «Мармарита»</span><span lang="en">Marmarita café</span></h2>
+        <p>
+          <span lang="ru">«Мармарита» — уютное кафе быстрого питания в Калининграде. Каждый день мы готовим шаверму, шашлык, панини, бургеры и хот-доги из свежих продуктов и варим ароматный кофе. Заходите к нам или сделайте заказ по телефону — мы всё приготовим к вашему приходу.</span>
+          <span lang="en">Marmarita is a cosy fast-food café in Kaliningrad. Every day we cook shawarma, shashlik, panini, burgers and hot dogs from fresh ingredients and brew fragrant coffee. Drop by, or order by phone and we will have it ready when you arrive.</span>
+        </p>
+        <ul class="points">
+          <li><span class="ic">1</span><div><b><span lang="ru">Свежие продукты</span><span lang="en">Fresh ingredients</span></b><span class="t"><span lang="ru">Овощи, мясо и соусы — каждый день.</span><span lang="en">Vegetables, meat and sauces — every day.</span></span></div></li>
+          <li><span class="ic">2</span><div><b><span lang="ru">Быстро и сытно</span><span lang="en">Quick and filling</span></b><span class="t"><span lang="ru">Идеально на обед и на вынос.</span><span lang="en">Perfect for lunch and takeaway.</span></span></div></li>
+          <li><span class="ic">3</span><div><b><span lang="ru">Заказ по телефону</span><span lang="en">Order by phone</span></b><span class="t"><a href="tel:+79114525508">+7 (911) 452-55-08</a></span></div></li>
+        </ul>
+      </div>
+      <img src="img/lunchbox.jpg" alt="Ланч-бокс / Lunch box" loading="lazy">
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="ru">Контакты</span><span lang="en">Contact</span></p>
+      <h2><span lang="ru">Ждём вас в гости</span><span lang="en">Come and visit us</span></h2>
+      <p class="intro"><span lang="ru">Заказы принимаем по телефону.</span><span lang="en">We take orders by phone.</span></p>
+      <div class="contact">
+        <div class="info">
+          <div class="row"><small><span lang="ru">Адрес</span><span lang="en">Address</span></small>
+            <div><span lang="ru">Калининград, ул. Гайдара 117б</span><span lang="en">Kaliningrad, 117b Gaidara St.</span></div>
+          </div>
+          <div class="row"><small><span lang="ru">Телефон</span><span lang="en">Phone</span></small>
+            <a href="tel:+79114525508">+7 (911) 452-55-08</a>
+          </div>
+          <div class="row"><small><span lang="ru">Часы работы</span><span lang="en">Opening hours</span></small>
+            <div><span lang="ru">Ежедневно 10:00–23:00</span><span lang="en">Daily 10:00–23:00</span></div>
+          </div>
+          <div class="btns">
+            <a class="btn primary" href="tel:+79114525508">📞 <span lang="ru">Позвонить</span><span lang="en">Call</span></a>
+            <a class="btn ghost" href="https://yandex.ru/maps/?text=%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%93%D0%B0%D0%B9%D0%B4%D0%B0%D1%80%D0%B0%2C%20117%D0%91" target="_blank" rel="noopener">📍 <span lang="ru">Маршрут</span><span lang="en">Directions</span></a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Карта / Map" loading="lazy" src="https://yandex.ru/map-widget/v1/?text=%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%93%D0%B0%D0%B9%D0%B4%D0%B0%D1%80%D0%B0%2C%20117%D0%91&amp;z=16"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="logo-f">Мармарита</span>
+  <span lang="ru">Калининград, ул. Гайдара 117б · +7 (911) 452-55-08 · Ежедневно 10:00–23:00</span>
+  <span lang="en">Kaliningrad, 117b Gaidara St. · +7 (911) 452-55-08 · Daily 10:00–23:00</span>
+  <br>© <span id="year">2026</span> Мармарита
+</footer>
+
+<dialog class="lb" id="lb"><button type="button" aria-label="Закрыть / Close">✕</button><img alt=""></dialog>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var titles = {
+      ru: 'Мармарита — шаверма, шашлык и закуски в Калининграде',
+      en: 'Marmarita — shawarma, shashlik and snacks in Kaliningrad'
+    };
+    function setLang(l) {
+      root.setAttribute('data-lang', l);
+      root.lang = l;
+      document.title = titles[l];
+      document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === l ? 'true' : 'false');
+      });
+      try { localStorage.setItem('lang', l); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    if (saved === 'en' || saved === 'ru') setLang(saved);
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+    });
+
+    var lb = document.getElementById('lb');
+    if (lb && lb.showModal) {
+      document.querySelectorAll('[data-lightbox]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          lb.querySelector('img').src = a.getAttribute('href');
+          lb.showModal();
+        });
+      });
+      lb.addEventListener('click', function () { lb.close(); });
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
